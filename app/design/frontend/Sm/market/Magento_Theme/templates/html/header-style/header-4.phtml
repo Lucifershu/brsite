@@ -1,0 +1,170 @@
+<div class="header-container header-style-4">
+    <div class="header-top">
+        <div class="container">
+    <div class="row row-topheader">
+        <div class="col-lg-4 col-md-4 col-sm-12 site_menu">
+            <a href="#"><i class="fa fa-users"></i>Who we are ?</a>
+            <a href="http://targetm2.bluerhinestore.com/full-store"><i class="fa fa-folder"></i>Full Store Directory</a>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12 site_menusub">
+            <a href="#" class="serv_head"><i class="fa fa-desktop"></i>Services</a>
+                    <?php
+                        $_helper = $this->helper('Sm\Market\Helper\Data');
+                    ?>
+                    <div class="socials-wrap">
+                        <!-- <div class="title-follow"><?php echo __('Follow Us'); ?></div> -->
+                        <ul>
+                            <?php if ($_helper->getSocial('show_facebook')) { ?>
+                            <li class="li-social facebook-social">
+                                <a title="<?php echo $_helper->getSocial('facebook_name'); ?>"
+                                href="<?php echo $_helper->getSocial('facebook_url'); ?>" target="_blank">
+                                <span class="fa fa-facebook icon-social"></span>
+                                </a>
+                            </li>
+                    <?php } ?>
+                    <?php if ($_helper->getSocial('show_twitter')) { ?>
+                        <li class="li-social twitter-social">
+                            <a title="<?php echo $_helper->getSocial('twitter_name'); ?>"
+                               href="<?php echo $_helper->getSocial('twitter_url'); ?>" target="_blank">
+                                <span class="fa fa-twitter icon-social"></span>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <?php if ($_helper->getSocial('show_google')) { ?>
+                        <li class="li-social google-social">
+                            <a title="<?php echo $_helper->getSocial('google_name'); ?>"
+                               href="<?php echo $_helper->getSocial('google_url'); ?>" target="_blank">
+                                <span class="fa fa-google-plus icon-social"></span>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <?php if ($_helper->getSocial('show_linkedin')) { ?>
+                        <li class="li-social linkedin-social">
+                            <a title="<?php echo $_helper->getSocial('linkedin_name'); ?>"
+                               href="<?php echo $_helper->getSocial('linkedin_url'); ?>" target="_blank">
+                                <span class="fa fa-linkedin icon-social"></span>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <?php if ($_helper->getSocial('show_pinterest')) { ?>
+                        <li class="li-social pinterest-social">
+                            <a title="<?php echo $_helper->getSocial('pinterest_name'); ?>"
+                               href="<?php echo $_helper->getSocial('pinterest_url'); ?>" target="_blank">
+                                <span class="fa fa-pinterest icon-social"></span>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <?php if ($_helper->getSocial('show_youtube')) { ?>
+                        <li class="li-social youtube-social">
+                            <a title="<?php echo $_helper->getSocial('youtube_name'); ?>"
+                               href="<?php echo $_helper->getSocial('youtube_url'); ?>" target="_blank">
+                                <span class="fa fa-youtube-play icon-social"></span>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    <?php if ($_helper->getSocial('show_instagram')) { ?>
+                        <li class="li-social instagram-social">
+                            <a title="<?php echo $_helper->getSocial('instagram_name'); ?>"
+                               href="<?php echo $_helper->getSocial('instagram_url'); ?>" target="_blank">
+                                <span class="fa fa-instagram icon-social"></span>
+                            </a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <div class="header-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 logo-header">
+                    <?php echo $block->getChildHtml('logo_theme'); ?>
+                </div>
+                <div class="col-md-8 col-lg-8 col-sm-12">
+<div class="row special_menu">
+                    <p><a href="#"><em class="fa fa-gift"></em><span><b>Gift Box</b><br>Purchase with gift</span></a></p>
+                    <p><a href="#"><em class="fa fa-reorder"></em><span><b>Re-order</b><br>Get it again soon</span></a></p>
+                    <p><a href="#"><em class="fa fa-edit"></em><span><b>Blog</b><br>Know more about</span></a></p>
+                    <p><a href="#"><em class="fa fa-map-marker"></em><span><b>Reach Us</b><br>Start with Bluerhine</span></a></p>
+                 </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-12 header_call">
+                    <a href="#"><i class="fa fa-headphones" aria-hidden="true"></i></a>
+                    <a class="call_us" href="tel:+97148049888"><h4>+971-4-8049-888</h4>store@bluerhine.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-3 sidebar-megamenu">
+                    <div class="megamenu-content-sidebar">
+                        <div class="btn-megamenu">
+                            <a href="javascript:void(0)"
+                               title="<?php echo __('Shop By Category') ?>"><?php echo __('Shop By Category') ?></a>
+                        </div>
+
+                        <div class="menu-ver-content">
+                            <?php
+                            if ($_config->getGeneral('menu_style') == 'megamenu') {
+                                echo $block->getChildHtml('navigation-header-megamenu');
+                            } else {
+                                echo $block->getChildHtml('navigation-header');
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-mobile-container">
+                    <?php echo $block->getChildHtml('navigation.mobile'); ?>
+                </div>
+
+                <div class="col-lg-4 col-sm-9 searchbox-header">
+                    <div class="search-cart">
+                        <?php echo $block->getChildHtml('search-header-pro'); ?><i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                   <ul class="acc_menu">
+                   <li class="myaccount-link">
+                       <a href="<?php echo $this->getUrl('customer/account') ?>"
+                        title="<?php echo __('My Account') ?>">
+                       <i class="fa fa-user-circle-o" aria-hidden="true"></i><br>
+                       <?php echo __('Login/Register') ?></a>
+                   </li>
+                   <li class="link wishlist" data-bind="scope: 'wishlist'">
+                       <a <?= /* @noEscape */ $block->getLinkAttributes() ?>><?= $block->escapeHtml($block->getLabel()) ?>
+                       <!-- ko if: wishlist().counter -->
+                       <i class="fa fa-heart-o" aria-hidden="true"></i><br>
+                       Wishlist<span data-bind="text: wishlist().counter" class="counter qty"></span>
+                       <!-- /ko -->
+                       </a>
+                   </li>
+                   <li>
+                       <a href="#">
+                       <i class="fa fa-clone" aria-hidden="true"></i><br>
+                       <?php echo __('Compare') ?></a>
+                   </li>
+                   <li>
+                       <a href="#">
+                       <i class="fa fa-archive" aria-hidden="true"></i><br>
+                       <?php echo __('Favorite') ?></a>
+                   </li>
+                   <li>
+                       <div class="minicart-header">
+                            <div class="minicart-content">
+                                <?php echo $block->getChildHtml('cart-header'); ?>
+                            </div>
+                        </div>
+                   </li>
+                   </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
