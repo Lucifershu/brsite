@@ -1,0 +1,308 @@
+/* Media Css */
+@media (max-width: 767px) {
+.logo-header{
+text-align:center;
+}
+.special_menu p {
+    padding-left: 0px;
+    padding-right: 0px;
+margin:0 auto;
+}
+.special_menu{
+margin-top: 15px;
+    margin-bottom: 15px;
+}
+.header_call{
+text-align:center;
+}
+.searchbox-header{
+    margin-top: -50px !important;
+}
+.navigation-mobile-container{
+    margin: 0 5px !important;
+}
+.minicart-wrapper{
+margin-right: -60px !important;
+}
+a.action.showcart{
+    padding: 10px !important;
+}
+.acc_menu li{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+.f-left {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    overflow: hidden;
+}
+.s_box_top1, .s_box_top2{
+    margin: 0px;
+    box-shadow: none;
+    border-radius: 0px;
+    padding: 5%;
+}
+.h20 {
+    font-size: 16px;
+}
+.icon_link li {
+    margin-bottom: 5px;
+    line-height: 10px;
+    padding: 4px;
+}
+.mddl_r{
+margin-top:15px;
+}
+.s_box_top2 .spe_btn i:hover{
+    color: #fff !important;
+}
+.pdct_h6, .tab_c .p_box h6 {
+    font-size: 12px;
+}
+.item h5 {
+    font-size: 12px;
+}
+.item h5 {
+    margin-bottom: 4px;
+}
+.item h5 a {
+    font-size: 14px;
+}
+.item .price a {
+    display: none;
+}
+.zoomLink {
+    margin-top: 80px;
+    background: transparent;
+    border: 1px solid #d5d2d2;
+    padding: 0px 3px;
+    font-size: 12px;
+    transition: all 0.4s 0s;
+}
+.p_box {
+    padding: 15px !important;
+}
+.links a {
+    font-size: 11px;
+padding: 2px;
+}
+.hvr_links{
+display:none !important;
+}
+.p_box .action.sparsh-buynow-button{
+    font-size: 11px !important;
+    padding: 2px 5px !important;
+    height: 25px;
+}
+.featured_section .action.sparsh-buynow-button span {
+    margin-left: 5px !important;
+}
+.featured_section button.action.tocart.primary.sparsh-buynow-custom-tocart{
+font-size: 11px !important;
+    padding: 2px 4px !important;
+    height: 25px;
+}
+.featured_section button.action.tocart.primary.sparsh-buynow-custom-tocart span{
+ margin-left: 5px !important;
+}
+.p_box{
+height:300px !important;
+}
+.tab_c .action.sparsh-buynow-button span {
+    margin-left: 5px !important;
+}
+.p_box button.action.tocart.primary.sparsh-buynow-custom-tocart{
+    height: 30px;
+    width: 100%;
+    padding: 2px 5px !important;
+    margin-left: 0px;
+    margin-top: 10px;
+    font-size: 14px !important;
+}
+.tab_c .p_box {
+    height: 300px !important;
+}
+.product_img1{
+margin: 0% 0% 5% !important;
+}
+.arr_banner{
+display:none;
+}
+}
+.row-topheader{
+    height: 60px !important;
+}
+.site_menusub{
+    text-align: left !important;
+    display: inline-flex;
+}
+.site_menusub .socials-wrap {
+    float: initial !important;
+}
+.serv_head{
+        margin-left: 55px;
+}
+.site_menusub ul{
+        margin-left: 40px;
+}
+.header-style-4 .header-middle {
+    padding: 0px 0 15px !important;
+}
+.header_call{
+        margin-right: 30%;
+}
+.header-bottom{
+    height: 110px !important;
+}
+.acc_menu{
+    float: left !important;
+}
+.header-style-4 .header-bottom .minicart-header .minicart-content .cart-wrapper .minicart-wrapper .showcart{
+            line-height: 15px !important;
+    height: 15px !important;
+    width: 115px !important;
+}
+.header-style-4 .header-bottom .minicart-header .minicart-content .cart-wrapper .minicart-wrapper .showcart .text{
+    display: block !important;
+}
+.sale_banner{
+    text-align: center;
+}
+.sale_banner img{
+    margin-bottom: 20px;
+}
+.sale_banner1 img{
+        margin-bottom: 20px;
+}
+.sale_banner3 img{
+    width: 100% !important;
+    height: 100% !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.sale_banner3{
+    margin-top: 5% !important;
+}
+a.prod_name{
+    font-size: 12px !important;
+}
+.sale_banner1{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+a.btn.zoomLink{
+    display: none !important;
+}
+.product_img{
+    margin-bottom: 20px;
+}
+.pr_midsec{
+    margin-bottom: 30px !important;
+}
+.head_row1 h2 span::after{
+        width: 2.9% !important;
+    left: 15px !important;
+}
+.head_row1 h2::after{
+        width: 10% !important;
+        left: 15px !important;
+}
+.sm-listing-tabs .ltabs-tabs-container .ltabs-tabs-wrap .ltabs-current-select{
+    display: block !important;
+}
+.ltabs-tabs-wrap{
+        width: 10%;
+}
+.head_row1{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+i.fa.fa-cart-plus{
+    display: none !important;
+}
+.p_box .action.sparsh-buynow-button{
+        height: 30px !important;
+    width: 100% !important;
+    font-size: 14px !important;
+}
+.footer_services {
+    padding: 0px !important;
+    margin-top: 30px !important;
+}
+.footer_services p {
+     padding-left: 0px !important;
+     padding-right: 0px !important;
+    margin: 0 auto;
+}
+.foot_head p{
+    text-align: center !important;
+}
+.foot_head1 p{
+    text-align: center !important;
+}
+.foot_logo{
+    margin-bottom: 30px;
+}
+.foot_cat h6{
+        padding-bottom: 10px !important;
+}
+.foot_extra{
+    margin-bottom: 30px;
+}
+.foot_cat{
+    margin-bottom: 30px;
+}
+.foot_extra h6{
+        padding-bottom: 10px !important;
+}
+.foot_support{
+   margin-bottom: 30px; 
+}
+.foot_support h6{
+        padding-bottom: 10px !important;
+}
+.block.newsletter .field .control{
+        margin-left: 50px;
+}
+.block.newsletter{
+    margin-left: -5% !important;
+}
+.br_adv iframe{
+        width: 380px !important;
+}
+ol.products.list.items.product-items.row{
+    display: block !important;
+}
+.result_lbl{
+        float: right !important;
+    margin-top: 20px !important;
+}
+.innerPagethumb_img{
+        width: 20% !important;
+        height: 110px !important;
+    margin-left: 90px !important;
+}
+.innerPagethumb button.action.primary.sparsh-buynow-button{
+    margin-top: -40% !important;
+}
+.innerPagethumb button.action.tocart1.primary.sparsh-buynow-custom-tocart{
+        margin-left: -130%;
+    margin-top: -40%;
+}
+.innerPagethumb .sm_quickview_handler{
+    display: block !important;
+    left: -60% !important;
+    position: absolute !important;
+    top: -131% !important;
+    width: 70% !important;
+}
+.actionBox{
+        bottom: 5% !important;
+}
+.innerPagethumb{
+    height: 300px !important;
+}
