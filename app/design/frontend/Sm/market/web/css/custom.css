@@ -2586,9 +2586,11 @@ display: none !important;
     margin-top: 20px !important;
 }
 .sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu li a.sm_megamenu_head{
+    font-weight: 600;
+}
+.sm_megamenu_wrapper_vertical_menu .sm_megamenu_menu li:hover{
     background: #000 !important;
     color: #fff !important;
-    font-weight: 600;
 }
 .category_list_level1 a{
         color: #d0c0c0;
