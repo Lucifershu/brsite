@@ -1,0 +1,10 @@
+<?php /* @var $block \Magento\Catalog\Block\Product\View\Extra */?>
+<?php $_product = $block->getProduct() ?>
+<div class="sidebar_total">
+<p>Subtotal : <?= /* @escapeNotVerified */
+                        $block->getProductPrice($_product) ?></p>
+                        </div>
+<div class="sidebar_asperterm">
+<p>(As Per Term : <?= /* @escapeNotVerified */
+                        $block->getProductPrice($_product) ?>)</p>
+</div>

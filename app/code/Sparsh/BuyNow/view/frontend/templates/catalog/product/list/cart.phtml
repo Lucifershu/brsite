@@ -17,11 +17,29 @@ $allowedQty = $viewModel->setItem($item)->getMinMaxQty();
 <?php endforeach;?>
 <div class="box-tocart">
     <fieldset class="fieldset">
-            <div class="field qty">
-                <label class="label" for="qty[<?= $block->escapeHtmlAttr($item->getId()) ?>]"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+            <div class="field qtyw">
                 <div class="control">
-                    <input type="number" data-role="qty" id="qty[<?= $block->escapeHtmlAttr($item->getId()) ?>]" class="input-text qty" data-validate="{'required-number':true,'validate-greater-than-zero':true, 'validate-item-quantity':{'minAllowed':<?= /* @noEscape */ $allowedQty['minAllowed'] ?>,'maxAllowed':<?= /* @noEscape */ $allowedQty['maxAllowed'] ?>}}"
+                    <input type="number" data-role="qty" id="wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty" class="input-text qty" data-validate="{'required-number':true,'validate-greater-than-zero':true, 'validate-item-quantity':{'minAllowed':<?= /* @noEscape */ $allowedQty['minAllowed'] ?>,'maxAllowed':<?= /* @noEscape */ $allowedQty['maxAllowed'] ?>}}"
                            name="qty[<?= $block->escapeHtmlAttr($item->getId()) ?>]" value="<?= /* @noEscape */ (int)($block->getAddToCartQty($item) * 1) ?>" <?= $product->isSaleable() ? '' : 'disabled="disabled"' ?>>
+                           <span class="quantity-controls1 quantity-plus<?= $block->escapeHtmlAttr($item->getId()) ?>"><i class="fa fa-angle-down custom"></i></span>
+                           <span class="quantity-controls2 quantity-minus<?= $block->escapeHtmlAttr($item->getId()) ?>"><i class="fa fa-angle-up custom"></i></span>
+                               <script type="text/javascript">
+                                require([
+                                    'jquery'
+                                ], function ($) {
+                                    $('.quantity-minus<?= $block->escapeHtmlAttr($item->getId()) ?>').click(function () {
+                                        $('#wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty').val(Number($('#wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty').val()) + 1);
+                                    });
+
+                                    $('.quantity-plus<?= $block->escapeHtmlAttr($item->getId()) ?>').click(function () {
+                                        var value = Number($('#wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty').val()) - 1;
+                                        if (value > 0) {
+                                            $('#wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty').val(value);
+                                        }
+
+                                    });
+                                });
+                            </script>
                 </div>
             </div>
         <?php if ($product->isSaleable()): ?>
@@ -45,7 +63,7 @@ $allowedQty = $viewModel->setItem($item)->getMinMaxQty();
                                 title="<?= /* @noEscape */ __($buttonTitle) ?>"
                                 data-item-id="<?= $block->escapeHtmlAttr($item->getId()) ?>"
                                 class="action primary sparsh-buynow-button">
-                            <span><?= /* @noEscape */ __($buttonTitle) ?></span>
+                            <i class="fas fa-shopping-cart"></i><span><?= /* @noEscape */ __($buttonTitle) ?></span>
                         </button>
                     <?php endif; ?>
                 </div>

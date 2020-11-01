@@ -158,26 +158,26 @@ $footerStyle = $_config->getThemeLayout('footer_style');
                 <hr />
                 <div class="row footer_mid">
                     <div class="col-lg-3 col-md-3 col-sm-12 foot_logo">
-                        <img src="pub/media/logo/stores/1/logo.png" alt="footer Logo">
+                        <img src="http://targetm2.bluerhinestore.com/pub/media/logo/stores/1/logo.png" alt="footer Logo">
                         <p>Inspired solutions for signage and architecture. We carry a range of high-quality and cost-effective products to support our customers in the GCC region and beyond.</p>
                         <a href="tel:97148049888">Tel : +971-4-8049-888</a><br />
                         <a href="mailto:store@bluerhine.com">Email : store@bluerhine.com</a>
                     </div> 
                     <div class="col-lg-2 col-md-2 col-sm-12 foot_cat">
                         <h6>BEST CATEGORIES</h6>
-                        <p><a href="acrylic-sheets">Acrylic</a></p>
-                        <p><a href="polycarbonate-sheets">Polycarbonate</a></p>
-                        <p><a href="solvent-ink-media">Solvent Ink Media</a></p>
-                        <p><a href="colour-vinyls-decorative-films-writing-board-vinyl">Colour Vinyls</a></p>
+                        <p><a href="<?php echo $this->getUrl('acrylic-sheets') ?>">Acrylic</a></p>
+                        <p><a href="<?php echo $this->getUrl('polycarbonate-sheets') ?>">Polycarbonate</a></p>
+                        <p><a href="<?php echo $this->getUrl('solvent-ink-media') ?>">Solvent Ink Media</a></p>
+                        <p><a href="<?php echo $this->getUrl('colour-vinyls-decorative-films-writing-board-vinyl') ?>">Colour Vinyls</a></p>
                         <p><a href="led-strips">LED Strips</a></p>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12 foot_extra">
                         <h6>LEARN MORE</h6>
-                        <p><a href="delivery">Delivery</a></p>
-                        <p><a href="reseller-partnership">Reseller Partnership</a></p>
-                        <p><a href="returns-refunds">Returns & Refunds</a></p>
-                        <p><a href="terms-conditions">Terms & Conditions</a></p>
-                        <p><a href="privacy-policy">Privacy & Cookies Policy</a></p>
+                        <p><a href="<?php echo $this->getUrl('delivery') ?>">Delivery</a></p>
+                        <p><a href="<?php echo $this->getUrl('reseller-partnership') ?>">Reseller Partnership</a></p>
+                        <p><a href="<?php echo $this->getUrl('returns-refunds') ?>">Returns & Refunds</a></p>
+                        <p><a href="<?php echo $this->getUrl('terms-conditions') ?>">Terms & Conditions</a></p>
+                        <p><a href="<?php echo $this->getUrl('privacy-policy') ?>">Privacy & Cookies Policy</a></p>
                     </div>
                         <div class="col-lg-2 col-md-2 col-sm-12 foot_support">
                         <h6>COMPANY</h6>
@@ -204,7 +204,7 @@ $footerStyle = $_config->getThemeLayout('footer_style');
                                 <address><?php /* @escapeNotVerified */
                                     echo $block->getCopyright() ?></address>
                             <?php } ?>
-                            <img src="pub/media/logo/stores/1/t.png" alt="payment Logo">
+                            <img src="<?php echo $this->getUrl('pub/media/logo/stores/1/t.png') ?>" alt="payment Logo">
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 footer_social">

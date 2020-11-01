@@ -9,7 +9,11 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <move element="page.main.title" destination="product.info.main" before="-"/>
-
+<move element="product.view.extra" destination="product.info.main" before="-"/>
+<move element="product.view.sidebarbtn" destination="product.info.form.content" before="-"/>
+<move element="product.view.sidebartotal" destination="product.info.form.content" after="product.view.sidebarbtn"/>
+<move element="product.view.pricetitle" destination="product.info.main" after="product.info.price"/>
+<move element="product.info.details" destination="product.info.main" after="social.button.detail"/>
         <referenceBlock name="catalog.product.related" remove="true"/>
         <referenceBlock name="product.info.upsell" remove="true"/>
 
@@ -28,13 +32,44 @@
                 </arguments>
             </block>
         </referenceContainer>
-
+<referenceBlock name="product.info.details">
+        <referenceBlock name="product.info.details">
+            <arguments>
+                <argument name="priority" xsi:type="string">2</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="product.attributes">
+            <arguments>
+            <argument translate="true" name="title" xsi:type="string">Specification</argument>
+                <argument name="priority" xsi:type="string">1</argument>
+            </arguments>
+        </referenceBlock>
+    </referenceBlock>
         <referenceContainer name="product.info.main">
             <block class="Magento\Framework\View\Element\Template" name="social.button.detail"
                    after="product.info.overview" template="Magento_Theme::html/social-button.phtml"
                    ifconfig="market/product_detail/show_social_button"/>
+                   <block class="Magento\Catalog\Block\Product\View\Extra"
+                    name="product.view.extra"
+                    template="Magento_Catalog::product/view/extra.phtml"
+                    after="-">
+                    </block>
+                    <block class="Magento\Catalog\Block\Product\View\Extra"
+                    name="product.view.sidebarbtn"
+                    template="Magento_Catalog::product/view/sidebarbuttons.phtml"
+                    after="-">
+                    </block> 
+                    <block class="Magento\Catalog\Block\Product\View\Extra"
+                    name="product.view.sidebartotal"
+                    template="Magento_Catalog::product/view/sidebartotal.phtml"
+                    after="-">
+                    </block> 
+                    <block class="Magento\Catalog\Block\Product\View\Extra"
+                    name="product.view.pricetitle"
+                    template="Magento_Catalog::product/view/pricesubtitle.phtml"
+                    after="-">
+                    </block>
         </referenceContainer>
-
         <referenceContainer name="page.bottom.container">
             <container name="div.container.detail" htmlTag="div" htmlClass="container">
                 <block class="Magento\Catalog\Block\Product\ProductList\Related" name="catalog.product.related.theme"

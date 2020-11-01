@@ -80,8 +80,8 @@
 ###########################################
 # Disable POST processing to not break multiple image upload
 
-#    SecFilterEngine Off
-#    SecFilterScanPOST Off
+    SecFilterEngine Off
+    SecFilterScanPOST Off
 </IfModule>
 
 <IfModule mod_deflate.c>

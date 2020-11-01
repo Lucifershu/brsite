@@ -132,7 +132,7 @@ if (count($products)) {
                                                             }
                                                         }'
                                                 >
-                                                    <i class="fa fa-cart-plus"></i><span><?= /* @noEscape */ __($buttonTitle) ?></span>
+                                                    <i class="fas fa-shopping-cart"></i><span><?= /* @noEscape */ __($buttonTitle) ?></span>
                                                 </button>
                                             <?php endif; ?>
                                             <?php if ($isModuleEnable ? ($hideCart ? $flag = 0 : $flag) : $flag): ?>
@@ -140,7 +140,7 @@ if (count($products)) {
                                                         title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
                                                         class="action tocart primary<?= /* @noEscape */ $isModuleEnable ? ' sparsh-buynow-custom-tocart' : '' ?>"
                                                 >
-                                                    <i class="fa fa-cart-plus"></i><span><?= /* @noEscape */ __('Add to Cart') ?></span>
+                                                    <i class="fas fa-shopping-cart"></i><span><?= /* @noEscape */ __('Add to Cart') ?></span>
                                                 </button>
                                             <?php endif; ?>
                                         </form>
@@ -160,11 +160,11 @@ if (count($products)) {
                       <hr/>
                       <div class="hvr_links">
   <a href="" class="action towishlist" title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>" aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>" data-post='<?php /* @escapeNotVerified */ echo $block->getAddToWishlistParams($_product); ?>' data-action="add-to-wishlist" role="button">
-  <i class="fa fa-heart-o"></i>Wishlist</a>
+  <i class="far fa-heart"></i>Wishlist</a>
   <?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare'); ?>
   <a href="" class="action tocompare" title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>" aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>" data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_product); ?>' role="button">
-  <i class="fa fa-clone"></i>Compare</a>
-  <a href="javascript:void(0)"><i class="fa fa-archive"></i>Favorite</a>
+  <i class="fas fa-retweet"></i>Compare</a>
+  <a href="javascript:void(0)"><i class="fas fa-toolbox"></i>Favorite</a>
 </div>
                     </div>
                         </div>

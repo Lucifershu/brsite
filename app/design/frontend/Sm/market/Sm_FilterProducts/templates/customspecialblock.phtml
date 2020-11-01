@@ -61,7 +61,7 @@ $_helper            = $this->helper('Magento\Catalog\Helper\Output');
                                             <?= $block->getBlockHtml('formkey') ?>
                                             <button type="submit"
                                                     title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
-                                                    class="spe_btn"><i class="fa fa-cart-plus"></i>
+                                                    class="spe_btn"><i class="fas fa-shopping-cart"></i>
                                             </button>
                                         </form>
                                     <?php else: ?>
@@ -78,15 +78,15 @@ $_helper            = $this->helper('Magento\Catalog\Helper\Output');
                                                aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
                                                data-post='<?php /* @escapeNotVerified */
                                                echo $block->getAddToWishlistParams($_product); ?>'
-                                               data-action="add-to-wishlist" role="button"><i class="fa fa-heart-o"></i>
+                                               data-action="add-to-wishlist" role="button"><i class="far fa-heart"></i>
                                             </a></li>
                             <li><?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare'); ?><a href="" class="action tocompare"
                                            title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
                                            aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
                                            data-post='<?php /* @escapeNotVerified */
-                                           echo $compareHelper->getPostDataParams($_product); ?>' role="button"><i class="fa fa-clone"></i>
+                                           echo $compareHelper->getPostDataParams($_product); ?>' role="button"><i class="fas fa-retweet"></i>
                                         </a></li>
-                            <li><a href="javascript:void(0)"><i class="fa fa-archive"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="fas fa-toolbox"></i></a></li>
                         </ul>
                     </div>
                     <div class="mddl_r">

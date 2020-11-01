@@ -3,8 +3,8 @@
         <div class="container">
     <div class="row row-topheader">
         <div class="col-lg-4 col-md-4 col-sm-12 site_menu">
-            <a href="#"><i class="fa fa-users"></i>Who we are ?</a>
-            <a href="http://targetm2.bluerhinestore.com/full-store"><i class="fa fa-folder"></i>Full Store Directory</a>
+            <a href="#"><i class="fas fa-users"></i>Who we are ?</a>
+            <a href="<?php echo $this->getUrl('full-store') ?>"><i class="fas fa-newspaper"></i>Full Store Directory</a>
         </div>
         <div class="col-lg-8 col-md-8 col-sm-12 site_menusub">
             <a href="#" class="serv_head"><i class="fa fa-desktop"></i>Services</a>
@@ -12,64 +12,27 @@
                         $_helper = $this->helper('Sm\Market\Helper\Data');
                     ?>
                     <div class="socials-wrap">
-                        <!-- <div class="title-follow"><?php echo __('Follow Us'); ?></div> -->
                         <ul>
-                            <?php if ($_helper->getSocial('show_facebook')) { ?>
-                            <li class="li-social facebook-social">
-                                <a title="<?php echo $_helper->getSocial('facebook_name'); ?>"
-                                href="<?php echo $_helper->getSocial('facebook_url'); ?>" target="_blank">
-                                <span class="fa fa-facebook icon-social"></span>
+                            <li class="li-social">
+                                <a href="#" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
-                    <?php } ?>
-                    <?php if ($_helper->getSocial('show_twitter')) { ?>
-                        <li class="li-social twitter-social">
-                            <a title="<?php echo $_helper->getSocial('twitter_name'); ?>"
-                               href="<?php echo $_helper->getSocial('twitter_url'); ?>" target="_blank">
-                                <span class="fa fa-twitter icon-social"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php if ($_helper->getSocial('show_google')) { ?>
-                        <li class="li-social google-social">
-                            <a title="<?php echo $_helper->getSocial('google_name'); ?>"
-                               href="<?php echo $_helper->getSocial('google_url'); ?>" target="_blank">
-                                <span class="fa fa-google-plus icon-social"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php if ($_helper->getSocial('show_linkedin')) { ?>
-                        <li class="li-social linkedin-social">
-                            <a title="<?php echo $_helper->getSocial('linkedin_name'); ?>"
-                               href="<?php echo $_helper->getSocial('linkedin_url'); ?>" target="_blank">
-                                <span class="fa fa-linkedin icon-social"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php if ($_helper->getSocial('show_pinterest')) { ?>
-                        <li class="li-social pinterest-social">
-                            <a title="<?php echo $_helper->getSocial('pinterest_name'); ?>"
-                               href="<?php echo $_helper->getSocial('pinterest_url'); ?>" target="_blank">
-                                <span class="fa fa-pinterest icon-social"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php if ($_helper->getSocial('show_youtube')) { ?>
-                        <li class="li-social youtube-social">
-                            <a title="<?php echo $_helper->getSocial('youtube_name'); ?>"
-                               href="<?php echo $_helper->getSocial('youtube_url'); ?>" target="_blank">
-                                <span class="fa fa-youtube-play icon-social"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
-                    <?php if ($_helper->getSocial('show_instagram')) { ?>
-                        <li class="li-social instagram-social">
-                            <a title="<?php echo $_helper->getSocial('instagram_name'); ?>"
-                               href="<?php echo $_helper->getSocial('instagram_url'); ?>" target="_blank">
-                                <span class="fa fa-instagram icon-social"></span>
-                            </a>
-                        </li>
-                    <?php } ?>
+                            <li class="li-social">
+                                <a href="#" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                                </a>
+                            </li>
+                            <li class="li-social">
+                                <a href="#" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="li-social">
+                                <a href="#" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
                 </ul>
             </div>
         </div>
@@ -88,7 +51,7 @@
                     <p><a href="#"><em class="fa fa-gift"></em><span><b>Gift Box</b><br>Purchase with gift</span></a></p>
                     <p><a href="#"><em class="fa fa-reorder"></em><span><b>Re-order</b><br>Get it again soon</span></a></p>
                     <p><a href="#"><em class="fa fa-edit"></em><span><b>Blog</b><br>Know more about</span></a></p>
-                    <p><a href="#"><em class="fa fa-map-marker"></em><span><b>Reach Us</b><br>Start with Bluerhine</span></a></p>
+                    <p><a href="#"><em class="fas fa-map-marker-alt"></em><span><b>Reach Us</b><br>Start with Bluerhine</span></a></p>
                  </div>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12 header_call">
@@ -132,27 +95,38 @@
                 <div class="col-lg-6 col-sm-12">
                    <ul class="acc_menu">
                    <li class="myaccount-link">
-                       <a href="<?php echo $this->getUrl('customer/account') ?>"
+                       <!-- <a href="<?php echo $this->getUrl('customer/account') ?>"
                         title="<?php echo __('My Account') ?>">
-                       <i class="fa fa-user-circle-o" aria-hidden="true"></i><br>
-                       <?php echo __('Login/Register') ?></a>
+                       <i class="far fa-user" aria-hidden="true"></i><br>
+                       <?php echo __('Login/Register') ?></a> -->
+                       <?php
+                        $login_customer = $block->getLayout()->createBlock('Magento\Customer\Block\Account\Customer');
+                        ?>
+
+                        <?php if ($login_customer->customerLoggedIn()) { ?>
+                            <a href="<?php echo $this->getUrl('customer/account/logout') ?>"
+                               title="<?php echo __('Logout') ?>"><i class="far fa-user" aria-hidden="true"></i><br><?php echo __('Logout') ?></a>
+                        <?php } else { ?>
+                            <a href="<?php echo $this->getUrl('customer/account/login') ?>"
+                               title="<?php echo __('Sign In') ?>"><i class="far fa-user" aria-hidden="true"></i><br><?php echo __('Login/Register') ?></a>
+                        <?php } ?>
                    </li>
                    <li class="link wishlist" data-bind="scope: 'wishlist'">
-                       <a <?= /* @noEscape */ $block->getLinkAttributes() ?>><?= $block->escapeHtml($block->getLabel()) ?>
+                       <a href="<?php echo $this->getUrl('wishlist') ?>">
                        <!-- ko if: wishlist().counter -->
-                       <i class="fa fa-heart-o" aria-hidden="true"></i><br>
+                       <i class="far fa-heart" aria-hidden="true"></i><br>
                        Wishlist<span data-bind="text: wishlist().counter" class="counter qty"></span>
                        <!-- /ko -->
                        </a>
                    </li>
                    <li>
                        <a href="#">
-                       <i class="fa fa-clone" aria-hidden="true"></i><br>
+                       <i class="fas fa-retweet" aria-hidden="true"></i><br>
                        <?php echo __('Compare') ?></a>
                    </li>
                    <li>
                        <a href="#">
-                       <i class="fa fa-archive" aria-hidden="true"></i><br>
+                       <i class="fas fa-toolbox" aria-hidden="true"></i><br>
                        <?php echo __('Favorite') ?></a>
                    </li>
                    <li>

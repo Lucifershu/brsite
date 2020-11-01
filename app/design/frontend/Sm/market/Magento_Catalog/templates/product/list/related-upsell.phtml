@@ -44,7 +44,7 @@ switch ($type = $block->getType()) {
 
             $image             = 'related_products_list';
             $hover_image       = 'category_page_grid-hover';
-            $title             = __('Related Products');
+            $title             = __('Similar Products');
             $items             = $block->getItems();
             $limit             = $_config->getProductDetail('related_limit');
             $shuffle           = 0;
@@ -105,10 +105,8 @@ switch ($type = $block->getType()) {
 
     <div class="related-upsell-wrapper block block-detail <?php /* @escapeNotVerified */
     echo $class; ?>">
-        <div class="detail-title">
-        <span id="block-<?php /* @escapeNotVerified */
-        echo $class ?>-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */
-            echo $title; ?></span>
+        <div class="similar_head">
+             <h2><span>Similar Products</span></h2>
         </div>
         <div class="block-content content" aria-labelledby="block-<?php /* @escapeNotVerified */
         echo $class ?>-heading">
@@ -117,14 +115,18 @@ switch ($type = $block->getType()) {
                 <div class="grid-product-type products list items product-items slider-products">
                     <?php $i = 0;
                     foreach ($items as $_item): $i++; ?>
-                        <div class="item product product-item">
+                        <div class="item product product-item similar_list">
                             <div class="product-item-info" data-container="product-grid">
-                                <a href="<?php /* @escapeNotVerified */
-                                echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
-                                    <?php echo $block->getImage($_item, $image)->toHtml(); ?>
-                                </a>
-
-                                <!--LABEL PRODUCT-->
+                            <h6 class="p_sku">Product Code : <?= $block->escapeHtml($_item->getSku()) ?></h6>
+                            <strong class="product name product-item-name">
+                                        <a class="product-item-link"
+                                           title="<?php echo $block->escapeHtml($_item->getName()) ?>"
+                                           href="<?php /* @escapeNotVerified */
+                                           echo $block->getProductUrl($_item) ?>">
+                                            <?php echo $block->escapeHtml($_item->getName()) ?>
+                                        </a>
+                                    </strong>
+                                    <!--LABEL PRODUCT-->
                                 <?php
                                 $orgprice = (float)$_item->getPrice();
                                 $fnPrice  = (float)$_item->getFinalPrice();
@@ -154,22 +156,13 @@ switch ($type = $block->getType()) {
                                     <?php }
                                 } ?>
                                 <!--END LABEL PRODUCT-->
-
-                                <div class="product details product-item-details">
-                                    <strong class="product name product-item-name">
-                                        <a class="product-item-link"
-                                           title="<?php echo $block->escapeHtml($_item->getName()) ?>"
-                                           href="<?php /* @escapeNotVerified */
-                                           echo $block->getProductUrl($_item) ?>">
-                                            <?php echo $block->escapeHtml($_item->getName()) ?>
-                                        </a>
-                                    </strong>
-
-                                    <?php echo $block->getReviewsSummaryHtml($_item, $templateType, true) ?>
-
                                     <?php /* @escapeNotVerified */
                                     echo $block->getProductPrice($_item); ?>
-
+                                <a href="<?php /* @escapeNotVerified */
+                                echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
+                                    <?php echo $block->getImage($_item, $image)->toHtml(); ?>
+                                </a>
+                                <div class="product details product-item-details">
                                     <div class="product-item-inner">
                                         <div class="product actions product-item-actions">
                                             <div class="actions-primary">
@@ -274,10 +267,10 @@ switch ($type = $block->getType()) {
                         items: 3
                     },
                     992: {
-                        items: 4
+                        items: 5
                     },
                     1200: {
-                        items: 4
+                        items: 5
                     }
                 },
 
