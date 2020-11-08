@@ -1,0 +1,145 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/** @var \Magento\Wishlist\Block\Customer\Wishlist\Items $block */
+$columns = $block->getColumns();
+$blockName = $block->getLayout()->createBlock('Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Image');
+$blockAbs = $block->getLayout()->createBlock('Magento\Wishlist\Block\AbstractBlock');
+?>
+<?php
+$isModuleEnable = $this->helper(\Sparsh\BuyNow\Helper\Data::class)->getConfig('buynow/general/enable_buynow');
+$hideCart = $this->helper(Sparsh\BuyNow\Helper\Data::class)->getConfig('buynow/advance/hide_add_to_cart');
+$magentoVersion = $this->helper(\Sparsh\BuyNow\Helper\Data::class)->getMagentoVersion();
+$flag = 1;
+if ($isModuleEnable) :
+    if (version_compare($magentoVersion, '2.3.0', '<') && !$hideCart): ?>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Sparsh_BuyNow/js/buy-now-button": {}
+            }
+        }
+        </script>
+    <?php endif; ?>
+<?php endif; ?>
+<div class="topRow main_cart_topRow">
+    <h3><span>My Wishlist</span> (<?php echo count($block->getItems()); ?> Items)</h3>
+    </div>
+<div class="wishlist_products">
+    <?php if (count($block->getItems())) : ?>
+        <?php foreach ($block->getItems() as $item) : ?>
+    <ul>
+            <li data-row="product-item" class="product-item" id="item_<?= $block->escapeHtmlAttr($item->getId()) ?>">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a class="product-item-photo" tabindex="-1" href="<?= $block->escapeUrl($block->getProductUrl($item)) ?>" title="<?= $block->escapeHtmlAttr($item->getName()) ?>">
+                            <?= $blockName->getImage($blockName->getProductForThumbnail($item), 'wishlist_thumbnail')->toHtml() ?>
+                        </a>
+                    </div>
+                    <div class="col-md-3 wishlist_info">
+                        <strong class="product-item-name">
+                        <a href="<?= $block->escapeHtmlAttr($item->getProductUrl()) ?>" title="<?= $block->escapeHtmlAttr($item->getName()) ?>" class="product-item-link">
+                        <?= $block->escapeHtml($item->getName()) ?>
+                        </a>
+                        </strong>
+                        <div class="term_price">
+                        <p>AED <?php $pro_price = $item->getPrice();
+                        echo(round($pro_price, 2)); ?></p>
+                        <p><span>As per Term:</span> AED <?php $pro_price = $item->getPrice();
+                        echo(round($pro_price, 2)); ?></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 wishlist_actions">
+                        <div class="field qtyw">
+                            <div class="control">
+                                <?php $rqty = round($block->escapeHtmlAttr($item->getQty())) ?>
+                                <input type="number" data-role="qty" id="wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty" class="input-text qty" data-validate=""
+                           name="qty[<?= $block->escapeHtmlAttr($item->getId()) ?>]" value="<?php echo $rqty ?>">
+                           <span class="quantity-controls1 quantity-plus<?= $block->escapeHtmlAttr($item->getId()) ?>"><i class="fa fa-angle-down custom"></i></span>
+                           <span class="quantity-controls2 quantity-minus<?= $block->escapeHtmlAttr($item->getId()) ?>"><i class="fa fa-angle-up custom"></i></span>
+                               <script type="text/javascript">
+                                require([
+                                    'jquery'
+                                ], function ($) {
+                                    $('.quantity-minus<?= $block->escapeHtmlAttr($item->getId()) ?>').click(function () {
+                                        $('#wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty').val(Number($('#wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty').val()) + 1);
+                                    });
+
+                                    $('.quantity-plus<?= $block->escapeHtmlAttr($item->getId()) ?>').click(function () {
+                                        var value = Number($('#wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty').val()) - 1;
+                                        if (value > 0) {
+                                            $('#wish-<?= $block->escapeHtmlAttr($item->getId()) ?>-qty').val(value);
+                                        }
+
+                                    });
+                                });
+                            </script>
+                        </div>
+                        </div>
+                    </div>
+                        <div class="col-md-4 wishlist_actions">
+                            <div class="box-tocart">
+                                <fieldset class="fieldset">
+                                <?php if ($blockAbs->isSaleable()) : ?>
+                                <div class="product-item-actions">
+                                    <div class="actions-primary">
+                                        <!-- <a href="#" data-role="remove" data-post-remove='<?= $blockAbs->getItemRemoveParams($item) ?>' title="<?= $block->escapeHtmlAttr(__('Remove Item')) ?>" class="btn-remove action delete">
+                            <span><i class="far fa-trash-alt"></i></span>
+                            </a> -->
+                                        <button type="button" data-role="remove" data-post='<?= $blockAbs->getItemRemoveParams($item) ?>' title="<?= $block->escapeHtmlAttr(__('Remove Item')) ?>" class="btn-remove action delete">
+                                            <span><i class="far fa-trash-alt"></i></span>
+                                        </button>
+                                        <button type="button" data-role="tocart" data-post='<?= /* @noEscape */ $blockAbs->getItemAddToCartParams($item) ?>' title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" data-item-id="<?= $block->escapeHtmlAttr($item->getId()) ?>" class="action tocart primary">
+                                            <span><i class="fas fa-shopping-cart"></i></span>
+                                        </button>
+                                        <!-- <a href="javascript:void(0)" class="wish_fav"><i class="fas fa-toolbox"></i></a> -->
+                                        <button type="button" data-role="favorite" data-post='' title="favorite" class="btn-fav action add">
+                                            <span><i class="fas fa-toolbox"></i></span>
+                                        </button>
+                                        <?php if ($isModuleEnable):
+                        $buttonTitle = $this->helper("Sparsh\BuyNow\Helper\Data")->getConfig('buynow/advance/button_title');?>
+                        <button type="button"
+                                data-role="tocart"
+                                data-post='<?= /* @noEscape */ $this->helper("Sparsh\BuyNow\Helper\WishlistData")->getAddToCartParams($item) ?>'
+                                title="<?= /* @noEscape */ __($buttonTitle) ?>"
+                                data-item-id="<?= $block->escapeHtmlAttr($item->getId()) ?>"
+                                class="action primary sparsh-buynow-button">
+                            <i class="fas fa-shopping-cart"></i><span><?= /* @noEscape */ __($buttonTitle) ?></span>
+                        </button>
+                    <?php endif; ?>
+                                    </div>
+                                </div>
+                                <?php else : ?>
+                                    <?php if ($block->getIsSalable()) : ?>
+                                        <p class="available stock" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+                                            <span><?= $block->escapeHtml(__('In stock')) ?></span>
+                                        </p>
+                                    <?php else : ?>
+                                        <p class="unavailable stock" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+                                            <span><?= $block->escapeHtml(__('Out of stock')) ?></span>
+                                        </p>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                                </fieldset>
+                            </div>
+
+
+                        </div> 
+                </div>
+            </li>
+    </ul>
+            <?php endforeach; ?>
+    <?php else : ?>
+        <div class="message info empty">
+            <span><?= $block->escapeHtml(__('This Wish List has no Items')) ?></span>
+        </div>
+    <?php endif; ?>
+</div>
+
+<?php foreach ($columns as $column) : ?>
+    <?= $column->getAdditionalHtml() ?>
+<?php endforeach; ?>

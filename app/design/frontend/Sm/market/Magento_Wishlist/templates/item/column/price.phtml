@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Info $block */
+
+/** @var \Magento\Wishlist\Model\Item $item */
+$item = $block->getItem();
+$product = $item->getProduct();
+?>
+<?= /* @escapeNotVerified */
+                        $block->getProductPrice($product) ?>
+<div class="wishlist_price">
+<p>As per Term: </p>
+</div>
+<div class="other_wishlist">
+<?= $block->getProductDetailsHtml($product) ?>
+<p>Delivered by Wed,Dec 25</p>
+</div>
